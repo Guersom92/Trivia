@@ -66,7 +66,7 @@ function App() {
 
   return (
     <main className="app">
-      <h1>{pregunta?.question};</h1>
+      <h1>{pregunta?.question}</h1>
       <div className="respuestas">
         {respuestas?.map((a) => {
           return (
