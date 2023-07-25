@@ -1,0 +1,56 @@
+body {
+  text-align: center;
+  font-family: "Greek", sans-serif;
+  background-image: url("assets/papiro.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  color: saddlebrown;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.respuesta {
+  background-color: saddlebrown;
+  padding: 10px;
+  margin: 10px;
+  width: 40%;
+  color: azure;
+  border-radius: 200px;
+  cursor: pointer;
+}
+
+.respuesta:hover{
+    background-color: rgb(75, 43, 20);
+}
+
+.respuesta.correcto{
+  animation: correcto 3s ease forwards;
+}
+@keyframes correcto{
+  0%,35%,100%{
+    background-color: green;
+  }
+  20%{
+    background-color: rgb(8, 172, 8);
+  }
+}
+
+.respuesta.incorrecto{
+  animation: incorrecto 3s ease forwards;
+}
+@keyframes incorrecto{
+  0%,35%,100%{
+    background-color: red;
+  }
+  20%{
+    background-color: rgb(199, 36, 36);
+  }
+}
+
+.respuestas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
