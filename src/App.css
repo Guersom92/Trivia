@@ -15,8 +15,35 @@ body {
 h1 {
   font-size: 1.8rem;
  
-  
 }
+
+/* Spinner */
+
+.spinner-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  width: 100%;
+
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ccc;        
+  border-top: 6px solid #8B5E34; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animación de giro */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .cuestionario {
  
   padding: 20px;
@@ -83,17 +110,15 @@ progress {
 
 .modal{
 
-  position: fixed;       /* Fijo en la pantalla */
+  position: fixed;       
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.5); /* Capa oscura */
+  background-color: rgba(0,0,0,0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Para la animación de aparición */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease;
@@ -105,20 +130,17 @@ progress {
 
 
 .modal-contenido{
-  /* Estilo “pergamino” interno */
-  background-color: #f9f0e5; /* Tono claro similar al pergamino */
-  background-image: url('assets/papiro.jpg'); /* si tienes una textura extra */
+
+  background-color: #f9f0e5; 
+  background-image: url('assets/papiro.jpg'); 
   background-size: cover;
-  border: 2px solid #8B5E34; /* Borde marrón */
+  border: 2px solid #8B5E34; 
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
-
   width: 80%;
   max-width: 500px;
   padding: 20px;
   text-align: center;
-
-  /* Animación interna */
   animation: fadeInUp 0.5s ease forwards;
 }
 

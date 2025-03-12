@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Alternativa from "./alternativa";
+import confetti from "canvas-confetti";
+import Spinner from "./spinner";
 
 function Cuestionario() {
   const [data, setData] = useState([]);
@@ -9,6 +11,7 @@ function Cuestionario() {
   const [alternarivasBarajeadas, setAlternativasBarajeadas] = useState([]);
   const [mostrarModal, setMostrarModal] = useState(false);
   const [puntaje, setPuntaje] = useState(0);
+  const [cargando, setCargando] = useState(true);
 
   const api =
     "https://the-trivia-api.com/api/questions?categories=general_knowledge,arts_and_literature,film_and_tv,history,music,science&limit=10&difficulty=hard";
@@ -34,6 +37,7 @@ function Cuestionario() {
   // Funcion de reseteo
 
   async function resetear() {
+    setCargando(true);
     try {
       const response = await fetch(api);
       const data = await response.json();
@@ -43,19 +47,23 @@ function Cuestionario() {
       setIndice(0);
     } catch (error) {
       console.error("Error al cargar las preguntas:", error);
+    } finally {
+      setCargando(false);
     }
   }
 
   //Trayendo preguntas del API
-  const fetchPreguntas = async () => {
+  async function fetchPreguntas() {
     try {
       const response = await fetch(api);
       const data = await response.json();
       setData(data);
     } catch (error) {
       console.error("Error al cargar las preguntas:", error);
+    } finally {
+      setCargando(false);
     }
-  };
+  }
 
   useEffect(() => {
     fetchPreguntas();
@@ -79,8 +87,8 @@ function Cuestionario() {
       if (indice < data.length - 1) {
         setIndice(indice + 1);
       } else {
-        console.log("¡Has terminado todas las preguntas!");
         setMostrarModal(true);
+        if (puntaje >= 6) confetti();
       }
     }, 1500);
   }
@@ -98,8 +106,12 @@ function Cuestionario() {
   }, [data, indice]);
 
   // Mensaje de carga
+  if (cargando) {
+    return <Spinner />;
+  }
+  //Por si no se recibe nada del API
   if (data.length === 0) {
-    return <div>Cargando preguntas...</div>;
+    return <h2>No questions found</h2>;
   }
 
   let preguntaActual = data[indice];
@@ -110,14 +122,15 @@ function Cuestionario() {
       {mostrarModal && (
         <div className="modal visible">
           <div className="modal-contenido">
-            <h2>¡Fin del Juego!</h2>
-            <p>Tu puntuación final: {puntaje + "/10"}</p>
-            <button onClick={resetear}>Jugar de Nuevo</button>
+            <h2>¡End of the game!</h2>
+            <p>Your final score: {puntaje + "/10"}</p>
+            <button onClick={resetear}>Play Again</button>
           </div>
         </div>
       )}
 
-      <span>Question {indice + 1} / 10</span>
+      <span>Question </span>
+      <span translate="no"> {indice + 1}/10</span>
       <progress value={indice + 1} max={10} />
       <h1>{preguntaActual.question}</h1>
       <div className="alternativas">
