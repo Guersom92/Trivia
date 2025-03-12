@@ -1,56 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 body {
   text-align: center;
-  font-family: "Greek", sans-serif;
+  font-family: "Roboto", sans-serif;
   background-image: url("assets/papiro.jpg");
+  background-size: cover;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
-  color: saddlebrown;
+  color: #4A2E1D;
   display: flex;
   height: 100vh;
   align-items: center;
   justify-content: center;
 }
-.respuesta {
-  background-color: saddlebrown;
-  padding: 10px;
+h1 {
+  font-size: 1.8rem;
+ 
+  
+}
+.cuestionario {
+ 
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px;
+  border-radius: 20px;
+
+}
+.alternativa {
+  background-color: #8B5E34;
+  padding: 15px 25px;
+  font-size: 1rem;
   margin: 10px;
   width: 40%;
-  color: azure;
-  border-radius: 200px;
+  color: #fff;
+  align-content: center;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+progress {
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
+}
+.alternativa:hover{
+  background-color: #a17445; 
+ 
 }
 
-.respuesta:hover{
-    background-color: rgb(75, 43, 20);
-}
-
-.respuesta.correcto{
+.alternativa.correcto,  .alternativa >.alternativa.correcto{
   animation: correcto 3s ease forwards;
+  pointer-events: none;
+  transform: none;
 }
 @keyframes correcto{
   0%,35%,100%{
-    background-color: green;
+    background-color: #4D6D2A;
   }
   20%{
-    background-color: rgb(8, 172, 8);
+    background-color: #3d5721
   }
 }
-
-.respuesta.incorrecto{
+.alternativa.incorrecto{
   animation: incorrecto 3s ease forwards;
+  pointer-events: none;
+  transform: none;
 }
 @keyframes incorrecto{
   0%,35%,100%{
-    background-color: red;
+    background-color: #9B3535;
   }
   20%{
-    background-color: rgb(199, 36, 36);
+    background-color: #802d2d
   }
 }
 
-.respuestas {
+.alternativas {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   font-weight: 600;
+}
+
+.modal{
+
+  position: fixed;     /* Fijo en pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5); /* Oscurece el fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .alternativa:hover{
+  background-color: #a17445; 
+
+}
+
+
+.modal-contenido{
+
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 80%;
+  text-align: center;
+}
+
+.modal-contenido h2 {
+  margin-bottom: 1rem;
+}
+
+/* Media queries */
+
+@media (max-width: 600px) {
+  .alternativa {
+    width: 100%;
+    margin: 5px 0;
+  }
 }
