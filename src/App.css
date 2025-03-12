@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 body {
+  margin:0;
   text-align: center;
   font-family: "Roboto", sans-serif;
   background-image: url("assets/papiro.jpg");
   background-size: cover;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: center; 
+  background-repeat: no-repeat; 
   color: #4A2E1D;
   display: flex;
   height: 100vh;
   align-items: center;
   justify-content: center;
+  
 }
 h1 {
   font-size: 1.8rem;
@@ -25,6 +29,7 @@ h1 {
   align-items: center;
   min-height: 100vh; 
   width: 100%;
+  
 
 }
 
@@ -50,6 +55,7 @@ h1 {
   margin: 0 auto;
   max-width: 800px;
   border-radius: 20px;
+  
 
 }
 .alternativa {
@@ -122,6 +128,7 @@ progress {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease;
+  
 }
 .modal.visible {
   opacity: 1;
