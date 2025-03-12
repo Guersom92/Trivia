@@ -108,7 +108,7 @@ function Cuestionario() {
   return (
     <main className="cuestionario">
       {mostrarModal && (
-        <div className="modal">
+        <div className="modal visible">
           <div className="modal-contenido">
             <h2>¡Fin del Juego!</h2>
             <p>Tu puntuación final: {puntaje + "/10"}</p>
@@ -117,7 +117,7 @@ function Cuestionario() {
         </div>
       )}
 
-      <span>Pregunta {indice + 1} / 10</span>
+      <span>Question {indice + 1} / 10</span>
       <progress value={indice + 1} max={10} />
       <h1>{preguntaActual.question}</h1>
       <div className="alternativas">
