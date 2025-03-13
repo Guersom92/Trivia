@@ -4,6 +4,7 @@ import confetti from "canvas-confetti";
 import Spinner from "./spinner";
 import Modal from "./modal";
 import { barajo } from "../logica/barajo";
+import Progreso from "./progreso";
 
 function Cuestionario() {
   const [data, setData] = useState([]);
@@ -108,10 +109,8 @@ function Cuestionario() {
         puntaje={puntaje}
         resetear={resetear}
       />
-      <span>Question</span>
-      <span translate="no"> {indice + 1}/10</span>
-      <progress value={indice + 1} max={10} />
-      <h1>{preguntaActual.question}</h1>
+
+      <Progreso indice={indice} preguntaActual={preguntaActual} />
 
       <div className="alternativas">
         {alternarivasBarajeadas.map((alternativa, i) => {
