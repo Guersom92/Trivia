@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Alternativa from "./alternativa";
 import confetti from "canvas-confetti";
 import Spinner from "./spinner";
