@@ -1,8 +1,23 @@
-import React from "react";
+function Alternativa({
+  alternativa,
+  isCorrect,
+  isSelected,
+  handleAlternativeClick,
+}) {
+  let conditionalClass = "alternativa";
+  if (isCorrect && isSelected) {
+    conditionalClass += " correcto";
+  } else if (!isCorrect && isSelected) {
+    conditionalClass += " incorrecto";
+  }
 
-function Alternativa({ alternativa, siguientePregunta, className }) {
   return (
-    <div className={className} onClick={() => siguientePregunta(alternativa)}>
+    <div
+      onClick={() => {
+        handleAlternativeClick(alternativa);
+      }}
+      className={conditionalClass}
+    >
       {alternativa}
     </div>
   );

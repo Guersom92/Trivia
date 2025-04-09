@@ -1,25 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
-  margin:0;
+  margin: 0;
   text-align: center;
   font-family: "Roboto", sans-serif;
   background-color: #d8ca9f;
   background-image: url("assets/papiro.jpg");
   background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat; 
-  color: #4A2E1D;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #4a2e1d;
   display: flex;
   height: 100svh;
   align-items: center;
   justify-content: center;
-  
 }
 h1 {
   font-size: 1.8rem;
- 
 }
 
 /* Spinner */
@@ -28,17 +25,15 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; 
+  min-height: 100vh;
   width: 100%;
-  
-
 }
 
 .spinner {
   width: 50px;
   height: 50px;
-  border: 6px solid #8B5E34;        
-  border-top: 6px solid #d8ca9f;   
+  border: 6px solid #8b5e34;
+  border-top: 6px solid #d8ca9f;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -51,22 +46,19 @@ h1 {
 }
 
 .cuestionario {
- 
   padding: 20px;
   margin: 0 auto;
   max-width: 800px;
   border-radius: 20px;
-  
-
 }
-.contenedor-progreso{
+header {
   display: flex;
-  flex-direction: column; 
-  align-items: center;   /* Centra tanto el texto como la barra */
-  margin-bottom: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center; /* Centra tanto el texto como la barra */
 }
 .alternativa {
-  background-color: #8B5E34;
+  background-color: #8b5e34;
   padding: 15px 25px;
   font-size: 1rem;
   margin: 10px;
@@ -79,66 +71,70 @@ h1 {
 }
 /* Ajustes básicos del <progress> */
 progress {
-  width: 80%;              
-  height: 15px;           
-  margin: 1rem auto;
-  display: block;         
-  
-  -webkit-appearance: none;  
-  appearance: none;          
-  overflow: hidden;          
+  width: 80%;
+  height: 15px;
+
+  display: block;
+
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: hidden;
 
   background-color: #f9f0e5;
-  border: 2px solid #8B5E34; 
-  border-radius: 8px;  }      
+  border: 2px solid #8b5e34;
+  border-radius: 8px;
+}
 
 /* Estilo del contenedor en navegadores WebKit (Chrome, Safari, Edge Chromium) */
-progress::-webkit-progress-bar{
-  background-color: #f9f0e5; 
+progress::-webkit-progress-bar {
+  background-color: #f9f0e5;
 }
 
 /* Estilo de la barra de valor (parte rellena) en navegadores WebKit */
 progress::-webkit-progress-value {
-  background-color: #8B5E34; 
-  border-radius: 6px;        
-  transition: width 0.3s;   
-}
-
-/* Estilo de la barra en Firefox */
-progress::-moz-progress-bar {
-  background-color: #8B5E34;
+  background-color: #8b5e34;
   border-radius: 6px;
   transition: width 0.3s;
 }
 
-.alternativa:hover{
-  background-color: #a17445; 
- 
+/* Estilo de la barra en Firefox */
+progress::-moz-progress-bar {
+  background-color: #8b5e34;
+  border-radius: 6px;
+  transition: width 0.3s;
 }
 
-.alternativa.correcto{
+.alternativa:hover {
+  background-color: #a17445;
+}
+
+.alternativa.correcto {
   animation: correcto 3s ease forwards;
   pointer-events: none;
 }
-@keyframes correcto{
-  0%,35%,100%{
-    background-color: #4D6D2A;
+@keyframes correcto {
+  0%,
+  35%,
+  100% {
+    background-color: #4d6d2a;
   }
-  20%{
-    background-color: #3d5721
+  20% {
+    background-color: #3d5721;
   }
 }
-.alternativa.incorrecto{
+.alternativa.incorrecto {
   animation: incorrecto 3s ease forwards;
   pointer-events: none;
   transform: none;
 }
-@keyframes incorrecto{
-  0%,35%,100%{
-    background-color: #9B3535;
+@keyframes incorrecto {
+  0%,
+  35%,
+  100% {
+    background-color: #9b3535;
   }
-  20%{
-    background-color: #802d2d
+  20% {
+    background-color: #802d2d;
   }
 }
 
@@ -149,36 +145,32 @@ progress::-moz-progress-bar {
   font-weight: 600;
 }
 
-.modal{
-
-  position: fixed;       
+.modal {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease;
-  
 }
 .modal.visible {
   opacity: 1;
   visibility: visible;
 }
 
-
-.modal-contenido{
-
-  background-color: #f9f0e5; 
-  background-image: url('assets/papiro.jpg'); 
+.modal-contenido {
+  background-color: #f9f0e5;
+  background-image: url("assets/papiro.jpg");
   background-size: cover;
-  border: 2px solid #8B5E34; 
+  border: 2px solid #8b5e34;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   width: 80%;
   max-width: 500px;
   padding: 20px;
@@ -198,16 +190,15 @@ progress::-moz-progress-bar {
   }
 }
 
-
-
 .modal-contenido h2 {
   margin-bottom: 1rem;
 }
 
-.modal-contenido button {
-  background-color: #8B5E34;
+button {
+  background-color: #4a2e1d;
   color: #fff;
   border: none;
+  font-weight: bold;
   border-radius: 8px;
   padding: 10px 20px;
   margin-top: 1rem;
@@ -215,11 +206,9 @@ progress::-moz-progress-bar {
   transition: background-color 0.3s, transform 0.2s;
   font-size: 1rem;
   font-family: inherit;
-
 }
-.modal button:hover{
-  background-color: #a17445; 
-
+button:hover {
+  background-color: #663f26;
 }
 
 /* Media queries */
