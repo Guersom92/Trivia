@@ -13,7 +13,7 @@ export function useFetch() {
   const [error, setError] = useState(null);
 
   const fetchData = useCallback(async () => {
-    if (data.length > 0) {
+    if (window.localStorage.getItem("questions")) {
       setLoading(false);
       return;
     }
@@ -40,11 +40,17 @@ export function useFetch() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [data]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  return { questions: data, loading, error, fetchQuestions: fetchData };
+  return {
+    questions: data,
+    loading,
+    error,
+    fetchQuestions: fetchData,
+    setData,
+  };
 }
