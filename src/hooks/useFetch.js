@@ -51,6 +51,5 @@ export function useFetch() {
     loading,
     error,
     fetchQuestions: fetchData,
-    setData,
   };
 }

@@ -7,7 +7,7 @@ import { useFetch } from "./hooks/useFetch";
 import { useQuiz } from "./hooks/UseQuiz";
 
 function App() {
-  const { questions, loading, error, fetchQuestions, setData } = useFetch();
+  const { questions, loading, error, fetchQuestions } = useFetch();
   const {
     currentIndex,
     currentQuestion,
